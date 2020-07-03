@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movin' On Up</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="./Assets/style.css" rel="stylesheet">
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAh1rBDjDcIzVuZKrhTN7zchDGaRkpLt3s&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+        <div class="flex items-center flex-shrink-0 text-white mr-6">
+
+            <img class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54"
+                src="./Assets/logistics.svg"></img>
+            <span class="font-semibold text-5xl tracking-tight">Movin' On Up</span>
+        </div>
+    </nav>
+
+
+
+    <div class="page-container">
+        <div class="header-block">
+            <h1 class="text-white leading-tight py-8">The best app for researching your relocation!</h1>
+        </div>
+
+        <div class="flex mb-4">
+
+
+            <!-- Left Container For Search inputs -->
+            <div class="content-container flex">
+                <div class="m-8 overflow-hidden round-lg">
+                    <div class="flex-block overflow-hidden">
+                        <h3 class="text-white text-xl p-4 font-bold leading-tight">Find the right city for you!
+                        </h3>
+                        <div class="search-input p-8">
+                            <form id="city-search" onsubmit="submitFunction()">
+                                <label value="city-label" class="block text-gray-700 text-xl font-bold mb-2">Enter
+                                    Your
+                                    Location:</label>
+                                <input type="search" id="city-input" 
+                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                    placeholder="Enter City" >
+                                <input type="submit" id="city-submit" 
+                                    class='text-white font-bold py-2 px-4 rounded mx-auto block mt-4 w-full uppercase formBtn'
+                                    placeholder='Submit' value='Submit' >
+                            </form>
+                        </div>
+                        <div class="category-buttons">
+                            <button onclick="hideText()" id=housingMrkt
+                                class="text-gray-800 py-2 px-4 rounded mx-auto block mt-4 w-full uppercase">Housing
+                                Market</button>
+                            <button onclick="hideText()" id=schoolDist
+                                class="text-gray-800 py-2 px-4 rounded mx-auto block mt-4 w-full uppercase">School
+                                District</button>
+                            <button onclick="hideText()" id=weatherForecast
+                                class="text-gray-800 py-2 px-4 rounded mx-auto block mt-4 w-full uppercase">Weather
+                                Forcast</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Data Box for Apartments -->
+
+            <div id="apartment" class="map-container flex">
+                <div class=" m-8 overflow-hidden round-lg">
+                    <div class="flex-block overflow-hidden">
+                        <h3 class="text-white text-xl p-4 font-bold leading-tight">Affordable Apartments</h3>
+                        <div id="content" class="search-input p-8">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Box for schools-->
+            <div id="school" class="map-container flex">
+                <div class="m-8 overflow-hidden round-lg">
+                    <div class="flex-block overflow-hidden">
+                        <h3 class="text-white text-xl p-4 font-bold leading-tight">Local Schools</h3>
+                        <div id="content1" class="search-input p-8">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data box for weather -->
+            <div id="weatherDiv" class="map-container flex">
+                <div class="m-8 overflow-hidden round-lg">
+                    <div class="flex-block overflow-hidden">
+                        <h3 class="text-white text-xl p-4 font-bold leading-tight">Current Weather</h3>
+                        <div id="weather" class="search-input p-8">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Map Flex -->
+            <div class="map-container flex">
+                <div class="m-8 overflow-hidden round-lg">
+                    <div class="flex-block overflow-hidden">
+                        <h3 class="text-white text-xl p-4 font-bold leading-tight">Map</h3>
+                        <div id="map"  >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="Assets/tailwind.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+     <script src="Assets/script.js"></script>
+     <!-- <script src="Assets/curWeather.js"></script> -->
+    
+</body>
+
+</html>
